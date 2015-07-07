@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="FirstApp">
+<head>
+	<meta charset="UTF-8">
+	<title>prueba http</title>
+	<script src="./js/angular.js"></script>
+	<script src="./js/app.js"></script>
+</head>
+<body ng-controller="appCtrl">
+	<input type="text" ng-model="newPost.title">
+	<br>
+	<textarea ng-model="newPost.body" name="body" id="" cols="30" rows="10">
+		
+	</textarea>
+	<br>
+	<button ng-click="addPost()">Agregar Post</button>
+	<h1>Posts</h1>
+	<br>
+	<ul ng-repeat="post in posts">
+		<li>
+			<h1>{{post.title}}</h1><p>{{post.body}}</p>
+		</li>
+	</ul>
+	
+</body>
+</html>

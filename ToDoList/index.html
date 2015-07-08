@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="unaApp">
+<head>
+	<meta charset="UTF-8">
+	<title>To do list</title>
+	<script src="/AngularJS/js/angular-local-storage.min.js"></script>
+	<script src="/AngularJS/js/angular.min.js"></script>
+	<script src="app.js"></script>
+<body ng-controller="appCtrl">
+	
+	<ul>
+		<li ng-repeat="pack in to">
+			{{pack.actividad}} -
+			{{pack.fecha}}
+			
+		</li>
+	</ul>
+	
+	<section>
+		
+		<form action="">
+			<input type="text" ng-model="newActv.actividad">
+			<input type="datetime-local" ng-model="newActv.fecha">
+			<input type="submit" value="Guardar Actividad">
+		</form>
+	</section>
+</body>
+</html>

@@ -1,9 +1,19 @@
-var app = angular.module("unaApp",["LocalStorageModule"])
-app.controller("appCtrl", function($scope, LocalStorageService){
-$scope.to = [];
+angular.module('unaApp', ['LocalStorageModule'])
+
+.controller("appCtrl", function($scope,localStorageService){
+	if(localStorageService.get('angularJS-Key')){
+
+		$scope.todo = localStorageService.get('angularJS-Key');
+
+	}
+	else
+	{
+	$scope.to = [];	
+	}
+
 /*
 {
-	Actividad: "Curso_Terminado",
+	descripcion: "Curso_Terminado",
 	fecha: "08/07/15, 2:00Pm"
 	
 }
@@ -12,5 +22,6 @@ $scope.to = [];
 		
 		$scope.to.push($scope.newActv);
 		$scope.newActv = {};
+		localStorageService.set('angularJS-Key',$scope.todo);
 	}
 });

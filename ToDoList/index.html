@@ -3,14 +3,16 @@
 <head>
 	<meta charset="UTF-8">
 	<title>To do list</title>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js"></script>
 	<script src="/AngularJS/js/angular-local-storage.min.js"></script>
-	<script src="/AngularJS/js/angular.min.js"></script>
 	<script src="app.js"></script>
+
+	</head>
 <body ng-controller="appCtrl">
-	
+
 	<ul>
 		<li ng-repeat="pack in to">
-			{{pack.actividad}} -
+			{{pack.descripcion}} -
 			{{pack.fecha}}
 			
 		</li>
@@ -18,10 +20,10 @@
 	
 	<section>
 		
-		<form action="">
-			<input type="text" ng-model="newActv.actividad">
+		<form ng-submit="addActv()">
+			<input type="text" ng-model="newActv.descripcion">
 			<input type="datetime-local" ng-model="newActv.fecha">
-			<input type="submit" value="Guardar Actividad">
+			<input class="btn" type="submit" value="Guardar Actividad">
 		</form>
 	</section>
 </body>

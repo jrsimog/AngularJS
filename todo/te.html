@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html ng-app="">
+ 
+<head>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.js"></script>
+  <script src="script.js"></script>
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<meta charset="UTF-8">
+</head>
+ 
+<body >
+
+	<section id="container">
+    <div  class="col-lg-6">
+        <div  class="well bs-component">
+            <form class="form-horizontal" name="formConfiguracion" ng-submit="save()">
+                <fieldset ng-model="Ganador">
+                    <legend>Configuración Juego {{configuracion.juego.descripcion}}</legend>
+<div ng-switch on="Ganador">
+                    <div  ng-switch-when="Ganador" class="form-group">
+                        <label class="col-lg-2 control-label" for="nombre">
+                            Cupos Caballo
+                        </label>
+
+                        <div class="col-lg-10">
+                            <input id="cupocaballos" name="cupocaballos" class="form-control floating-label" type="number" required ng-model="configuracion.cupocaballos" />
+                            <span ng-show="formConfiguracion.cupocaballos.$error.required && formConfiguracion.cupocaballos.$touched">El Cupo es requerido</span>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label" for="costoganador">
+                            Costo Caballo
+                        </label>
+                        <div class="col-lg-10">
+                            <input id="costoganador" name="costoganador" class="form-control floating-label " type="text" required ng-model="configuracion.costoganador">
+                            <span ng-show="formConfiguracion.costoganador.$error.required && formConfiguracion.costoganador.$touched" class="">El Costo es requerido</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label" for="porcentajeganancia">
+                            Porcentajes Ganancias
+                        </label>
+                        <div class="col-lg-10">
+                            <input id="porcentajeganancia" name="porcentajeganancia" class="form-control floating-label " type="text" required ng-model="configuracion.porcentajeganancia">
+                            <span ng-show="formConfiguracion.porcentajeganancia.$error.required && formConfiguracion.porcentajeganancia.$touched" class="">El Porcentaje es requerido</span>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label" for="minimocaballos">
+                            Minimos de Caballos
+                        </label>
+
+                        <div class="col-lg-10">
+
+                            <input id="minimocaballos" name="minimocaballos" class="form-control floating-label " type="text" required ng-model="configuracion.minimocaballos">
+                            <span ng-show="formConfiguracion.minimocaballos.$error.required && formConfiguracion.minimocaballos.$touched" class="">El Porcentaje es requerido</span>
+                        </div>
+                    </div>
+
+
+                    <fieldset>
+                        <legend>Compartido</legend>
+
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label" for="compartido">
+                            </label>
+                            <div class="col-lg-10">
+
+                                <div class="checkbox">
+                                    <label>
+
+                                        <input type="checkbox" id="compartido" ng-model="configuracion.compartido" ng-true-value="1" ng-false-value="0" />
+                                        <span class="ripple"></span>
+                                        <span class="check"></span>
+
+                                    </label>
+                                </div>
+
+                            </div>
+                        </div>
+</div>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Modalidad</legend>
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label" for="porganancia">
+                            </label>
+                            <div class="col-lg-10">
+
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" id="porganancia" ng-model="configuracion.porganancia" ng-true-value="1" ng-false-value="0" />
+                                        <span class="ripple"></span>
+                                        <span class="check"></span>
+                                        .Por Ganacia
+                                    </label>
+
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" id="porventas" ng-model="configuracion.porventas" ng-true-value="1" ng-false-value="0" />
+                                        <span class="ripple"></span>
+                                        <span class="check"></span>
+                                        .Por Ventas
+                                    </label>
+
+                                </div>
+                            </div>
+                        </div>
+                        <code>{{configuracion}}</code>
+                    </fieldset>
+
+
+
+                    <div class="form-group">
+                        <div class="col-lg-10 col-lg-offset-3">
+                            <button type="button" ng-click="save()" class="btn btn-primary" ng-disabled="formConfiguracion.$invalid">Guardar</button>
+                            <button class="btn btn-default">Cancelar</button>
+                        </div>
+                    </div>
+
+                </fieldset>
+            </form>
+
+        </div>
+
+
+</body>
+ 
+</html>
